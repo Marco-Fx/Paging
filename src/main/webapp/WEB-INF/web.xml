@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>Spring-SpringMVC-Mybatis</display-name>
+<!--加载spring-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:xml/spring.xml</param-value>
+    </context-param>
+    <!--监听器 初始化容器-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!--springmvc配置-->
+    <servlet>
+        <servlet-name>drmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--加载springmvc参数-->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:xml/springmvc.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>drmvc</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <!--中间件过滤静态文件
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>-->
+</web-app>

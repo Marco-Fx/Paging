@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../layui/layui.all.js"></script>  
+<link rel="stylesheet" href="../layui/css/layui.css">
+</head>
+<body>
+<table id="demo" lay-filter="test"></table>
+<script>
+layui.use('table', function(){
+  var table = layui.table;
+  
+  //第一个实例
+  table.render({
+    elem: '#demo'
+    ,height: 312
+    ,url: '/demo/table/user/' //数据接口
+    ,page: true //开启分页
+    ,cols: [[ //表头
+      {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
+      ,{field: 'username', title: '用户名', width:80}
+      ,{field: 'sex', title: '性别', width:80, sort: true}
+      ,{field: 'city', title: '城市', width:80} 
+      ,{field: 'sign', title: '签名', width: 177}
+      ,{field: 'experience', title: '积分', width: 80, sort: true}
+      ,{field: 'score', title: '评分', width: 80, sort: true}
+      ,{field: 'classify', title: '职业', width: 80}
+      ,{field: 'wealth', title: '财富', width: 135, sort: true}
+    ]]
+  });
+  
+});
+</script>
+<table class="layui-hide" id="test"></table>
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+        table.render({
+            elem: '#test'
+            ,url:'/html/student'
+            ,cols: [
+                [
+                {field:'np_id', width:80, title: 'ID', sort: true}
+                ,{field:'np_naem', width:80, title: '姓名'}
+                ,{field:'np_price', width:80, title: '价钱', sort: true}
+                ]
+            ]
+            ,page: true//开启分页，默认page=1，limit=10
+        });
+    });
+</script>
+
+</body>
+</html>

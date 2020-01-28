@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- testname testpwd -->
+<mapper namespace="com.marco.userDao.UserData">
+	<!-- 登录校验 -->
+	<select id="Snp" parameterType="Map" resultType="Map">
+		select * from
+		zhang where testname=#{testname} and testpwd=#{testpwd}
+
+	</select>
+	<!-- 用户注册 -->
+	<!-- 注册前查询 -->
+	<select id="Sncp" parameterType="Map" resultType="Map">
+		select
+		testname
+		from
+		zhang
+		where
+		testname=#{testname}
+	</select>
+	<insert id="Sintop" parameterType="Map">
+		insert into zhang
+		(testname,testpwd) values(#{testname},#{testpwd})
+	</insert>
+	<!-- 修改密码 -->
+	<update id="Suppwd" parameterType="Map">
+		update zhang set
+		testpwd=#{testpwd} where testname=#{testname}
+	</update>
+	<select id="selshop" resultType="Map">
+		select * from shop1
+
+	</select>
+	<select id="count" resultType="Map">
+	select count(*) from shop1
+	</select>
+</mapper>
